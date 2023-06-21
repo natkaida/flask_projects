@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    {% if current_user.is_authenticated %}
+      <p class="mt-5">Привет, {{ current_user.username }}!</p>
+      <a href="{{ url_for('profile') }}" class="btn btn-primary mt-3">Мой профиль</a>
+      <a href="{{ url_for('logout') }}" class="btn btn-secondary mt-3">Выход</a>
+    {% else %}
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h1 class="text-center">Добро пожаловать в MyApp</h1>
+            </div>
+            <div class="card-body">
+              <p>Пожалуйста, <a href="{{ url_for('login') }}">войдите</a> или <a href="{{ url_for('register') }}">зарегистрируйтесь</a> для просмотра своего профиля.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

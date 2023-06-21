@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Список товаров{% endblock %}
+
+{% block content %}
+    <h1 class="my-3">Товары на складе</h1>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Наименование</th>
+                    <th scope="col">Описание</th>
+                    <th scope="col">Вес 1 единицы</th>
+                    <th scope="col">Количество</th>
+                    <th scope="col">Цена поставщика</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for grocery in groceries %}
+                    <tr>
+                        <td>{{ grocery.name }}</td>
+                        <td>{{ grocery.description }}</td>
+                        <td>{{ grocery.weight }}</td>
+                        <td>{{ grocery.quantity }}</td>
+                        <td>{{ grocery.price }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="/add" class="btn btn-primary">Добавить товар</a>
+{% endblock %}

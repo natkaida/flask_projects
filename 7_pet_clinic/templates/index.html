@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Пациенты клиники</h1>
+    <a href="{{ url_for('add_patient') }}" class="btn btn-primary mb-3">Добавить пациента</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Кличка</th>
+                <th>Подробности</th>
+                <th>Вес</th>
+                <th>Возраст</th>
+                <th>Имя и адрес владельца</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+            <tr>
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.details }}</td>
+                <td>{{ patient.weight }}</td>
+                <td>{{ patient.age }}</td>
+                <td>{{ patient.owner_name }}</td>
+                <td>
+                    <a href="{{ url_for('edit_patient', id=patient.id) }}" class="btn btn-sm btn-primary mx-1">Редактировать</a>
+                    <form method="post" action="{{ url_for('delete_patient', id=patient.id) }}" style="display: inline">
+                        <button type="submit" class="btn btn-sm btn-danger mx-1">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

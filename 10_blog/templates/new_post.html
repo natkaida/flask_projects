@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Новая запись</h1>
+  <div class="col-6 mx-auto">
+  <form method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Заголовок</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Текст</label>
+      <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Категория</label>
+      <select class="form-select" id="category" name="category" required>
+        {% for category in categories %}
+          <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="tags" class="form-label">Теги</label>
+      <select class="form-select" id="tags" name="tags" multiple>
+        {% for tag in tags %}
+          <option value="{{ tag.id }}">{{ tag.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+  </form>
+</div>
+{% endblock %}

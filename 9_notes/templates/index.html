@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container-fluid">
+    <h1 class="my-4">Мои заметки</h1>
+    <div class="row">
+      {% if notes %}
+        {% for note in notes %}
+          <div class="col-md-3 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ note.title }}</h5>
+                <a href="{{ url_for('category', category_id=note.category.id) }}" class="p-1 mb-1 bg-dark text-white rounded text-decoration-none">{{ note.category.name }}</a>
+                <p class="card-text">{{ note.content }}</p>
+              </div>
+              <div class="card-footer">
+                <a href="{{ url_for('edit', note_id=note.id) }}" class="btn btn-secondary">Редактировать</a>
+                <a href="{{ url_for('delete', note_id=note.id) }}" class="btn btn-danger">Удалить</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="col">
+          <p>Заметок пока нет - напиши первую</p>
+        </div>
+      {% endif %}
+    </div>
+    <div class="row mt-4">
+      <div class="col">
+        <a href="{{ url_for('add') }}" class="btn btn-primary">Добавить заметку</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

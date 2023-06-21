@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ manufacturer }} - {{ category }}{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1 class="my-4">{{ manufacturer }} - {{ category }}</h1>
+      <ul class="list-group">
+        {% for item in items %}
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-8">
+                <h5>{{ item.name }}</h5>
+                <p>{{ item.description }}</p>
+              </div>
+              <div class="col-md-4">
+                <p class="text-end">Цена: {{ item.price }} руб., в наличии: {{ item.quantity }} шт.</p>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

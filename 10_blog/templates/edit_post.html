@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Редактирование записи</h1>
+  <div class="col-6 mx-auto">
+  <form method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Заголовок</label>
+      <input type="text" class="form-control" id="title" name="title" value="{{ post.title }}" required>
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Текст</label>
+      <textarea class="form-control" id="content" name="content" rows="5" required>{{ post.content }}</textarea>
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Категория</label>
+      <select class="form-select" id="category" name="category" required>
+        {% for category in categories %}
+          {% if category.id == post.category.id %}
+            <option value="{{ category.id }}" selected>{{ category.name }}</option>
+          {% else %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="tags" class="form-label">Теги</label>
+      <select class="form-select" id="tags" name="tags" multiple>
+        {% for tag in tags %}
+          {% if tag in post.tags %}
+            <option value="{{ tag.id }}" selected>{{ tag.name }}</option>
+          {% else %}
+            <option value="{{ tag.id }}">{{ tag.name }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+  </form>
+</div>
+{% endblock %}

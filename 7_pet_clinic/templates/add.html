@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Добавить пациента</h1>
+    <form method="post" action="{{ url_for('add_patient') }}">
+        <div class="mb-3">
+            <label for="name" class="form-label">Кличка</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="details" class="form-label">Подробности</label>
+            <textarea class="form-control" id="details" name="details" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="weight" class="form-label">Вес</label>
+            <input type="text" class="form-control" id="weight" name="weight" required>
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label">Возраст</label>
+            <input type="text" class="form-control" id="age" name="age" required>
+        </div>
+        <div class="mb-3">
+            <label for="owner_name" class="form-label">Имя и адрес владельца</label>
+            <input type="text" class="form-control" id="owner_name" name="owner_name" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+{% endblock %}

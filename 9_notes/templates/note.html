@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center my-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h4>{{ note.title }}</h4>
+          </div>
+          <div class="card-body">
+            <p>{{ note.content }}</p>
+            <p><a href="{{ url_for('category', category_id=note.category.id) }}" class="p-1 mb-1 bg-dark text-white rounded text-decoration-none">{{ note.category.name }}</a></p>
+          </div>
+          <div class="card-footer">
+            <a href="{{ url_for('edit', note_id=note.id) }}" class="btn btn-primary">Редактировать</a>
+            <a href="{{ url_for('delete', note_id=note.id) }}" class="btn btn-danger">Удалить</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

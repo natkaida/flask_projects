@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Классические романы{% endblock %}
+
+{% block content %}
+  <div class="row">
+    {% for book in books %}
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+      <div class="card">
+        <div style="position: relative;">
+        <div class="card-body" style="min-height: 230px;">
+          <h5 class="card-title">{{ book.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ book.author }}</h6>
+            <div class="card-text">{{ book.description[:50] }}...</div>
+            <a href="{{ url_for('book_detail', book_id=book.id) }}" class="btn btn-primary" style="position: absolute; bottom: 15px; right: 15px;">Подробнее</a>
+          </div>
+        </div>
+      </div>
+     </div>
+    {% endfor %}
+  </div>
+{% endblock %}

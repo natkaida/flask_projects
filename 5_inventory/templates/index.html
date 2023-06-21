@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}List of Manufacturers{% endblock %}
+
+{% block content %}
+  <h1 class="my-4">List of Manufacturers</h1>
+  <div class="list-group col-5">
+    {% for manufacturer in manufacturers %}
+      <a href="/{{ manufacturer.name }}/categories" class="list-group-item list-group-item-action">{{ manufacturer.name }}</a>
+    {% endfor %}
+  </div>
+{% endblock %}

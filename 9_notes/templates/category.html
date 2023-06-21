@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center my-4">
+      <div class="col-md-8">
+        <h1 class="text-center">{{ category.name }}</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Заголовок</th>
+              <th scope="col">Действия</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for note in category.notes %}
+              <tr>
+                <th scope="row">{{ loop.index }}</th>
+                <td><a href="{{ url_for('note', note_id=note.id) }}" class="text-decoration-none">{{ note.title }}</a></td>
+                <td><a href="{{ url_for('edit', note_id=note.id) }}" class="btn btn-secondary">Редактировать</a>
+                <a href="{{ url_for('delete', note_id=note.id) }}" class="btn btn-danger">Удалить</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}

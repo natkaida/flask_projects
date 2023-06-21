@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Мой список важных дел</title>
+    <style>
+      ul.no-bullets {
+      list-style-type: none; 
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Список дел на сегодня:</h1>
+    <ul class="no-bullets">
+      {% for task in tasks %}
+        <li>{{loop.index}}. {{ task }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
+

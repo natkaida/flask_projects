@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Мои книги
+{% endblock %}
+
+{% block content %}
+    <h1>Мои книги</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Автор</th>
+                <th>Жанры</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author.name }}</td>
+                    <td>{{ ', '.join([genre.name for genre in book.genres]) }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

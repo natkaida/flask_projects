@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Моe резюме{% endblock %}
+
+{% block content %}
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Мое резюме</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Образование</h2>
+                <h4>Московский политехнический институт</h4>
+                <p class="mb-0">Бакалавр Computer Science</p>
+                <p class="text-muted">2016 - 2020</p>
+            </div>
+            <div class="col-md-6">
+                <h2>Опыт работы</h2>
+                <h4>Web Developer - XYZ компания</h4>
+                <p class="mb-0">2019 - н.в.</p>
+                <p class="text-muted">- Разработка и поддержка веб-приложений</p>
+                <p class="text-muted">- Работа с Python, Django, HTML/CSS, JavaScript, MySQL</p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h2>Навыки</h2>
+                <ul class="list-group">
+                    <li class="list-group-item border-0 py-1"><i class="fa fa-cog"></i> Python</li>
+                    <li class="list-group-item border-0 py-1"><i class="fa fa-cog"></i> Django</li>
+                    <li class="list-group-item border-0 py-1"><i class="fa fa-cog"></i> HTML/CSS</li>
+                    <li class="list-group-item border-0 py-1"><i class="fa fa-cog"></i> JavaScript</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h2>Проекты</h2>
+                <h4>Сайт для продажи автомобилей</h4>
+                <p class="text-muted mb-0">- Разработка сайта с использованием Django</p>
+                <p class="text-muted">- Интеграция с API маркетплейса для получения данных об автомобилях</p>
+                <h4>Игровой блог</h4>
+                <p class="text-muted mb-0">- Разработка блога с использованием Django</p>
+                <p class="text-muted">- Возможность создавать учeтные записи пользователей и писать комментарии</p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <h2>Контакты</h2>
+                <p class="mb-0"><i class="fa fa-phone"></i> Телефон: +990123456789</p>
+                <p class="mb-0"><i class="fa fa-envelope"></i> Email: example@example.com</p>
+                <p class="mb-0"><i class="fa fa-github"> GitHub: <a href="https://github.com/example"></i>example</a></p>
+            </div>
+            <div class="col-md-6">
+                <h2>Языки</h2>
+                <ul class="list-group">
+                    <li class="list-group-item border-0 py-1"><i class="fa fa-check-circle"></i> Английский (C1)</li>
+                    <li class="list-group-item border-0 py-1"><i class="fa fa-check-circle"></i> Немецкий (B2)</li>
+                    <li class="list-group-item border-0 py-1"><i class="fa fa-check-circle"></i> Русский (родной)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

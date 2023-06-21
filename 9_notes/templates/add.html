@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center my-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="text-center">Новая заметка</h1>
+          </div>
+          <div class="card-body">
+            <form method="post">
+              <div class="form-group">
+                <label for="title">Заголовок:</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+              </div>
+              <div class="form-group">
+                <label for="content">Текст заметки:</label>
+                <textarea class="form-control" id="content" name="content" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="category">Категория:</label>
+                <select class="form-control" id="category" name="category" required>
+                  {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary mt-5">Сохранить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
-{% block title %}List of Manufacturers{% endblock %}
+{% block title %}Список производителей{% endblock %}
 
 {% block content %}
-  <h1 class="my-4">List of Manufacturers</h1>
+  <h1 class="my-4">Все производители</h1>
   <div class="list-group col-5">
     {% for manufacturer in manufacturers %}
       <a href="/{{ manufacturer.name }}/categories" class="list-group-item list-group-item-action">{{ manufacturer.name }}</a>

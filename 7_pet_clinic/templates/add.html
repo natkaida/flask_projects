@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Добавить пациента</h1>
+    <div class="col-6">
     <form method="post" action="{{ url_for('add_patient') }}">
         <div class="mb-3">
             <label for="name" class="form-label">Кличка</label>
@@ -25,4 +26,5 @@
         </div>
         <button type="submit" class="btn btn-primary">Сохранить</button>
     </form>
+    </div>
 {% endblock %}

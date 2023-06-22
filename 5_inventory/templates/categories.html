@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ manufacturer.name }} Categories{% endblock %}
+{% block title %}{{ manufacturer.name }} Категории{% endblock %}
 
 {% block content %}
   <div class="row">
     <div class="col-md-8 offset-md-2">
-      <h1 class="my-4">{{ manufacturer.name }} Categories</h1>
+      <h1 class="my-4">Все товары производителя {{ manufacturer.name }}</h1>
       <ul class="list-group">
         {% for category in categories %}
           <li class="list-group-item"><a href="/{{ manufacturer.name }}/{{ category.name }}">{{ category.name }}</a></li>

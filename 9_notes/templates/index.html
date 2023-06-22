@@ -6,12 +6,12 @@
     <div class="row">
       {% if notes %}
         {% for note in notes %}
-          <div class="col-md-3 mb-4">
+          <div class="col-6 mb-4">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">{{ note.title }}</h5>
                 <a href="{{ url_for('category', category_id=note.category.id) }}" class="p-1 mb-1 bg-dark text-white rounded text-decoration-none">{{ note.category.name }}</a>
-                <p class="card-text">{{ note.content }}</p>
+                <p class="card-text">{{ note.content[:300] }}... <a href="{{ url_for('note', note_id=note.id) }}" class="text-decoration-none">Читать</a></p>
               </div>
               <div class="card-footer">
                 <a href="{{ url_for('edit', note_id=note.id) }}" class="btn btn-secondary">Редактировать</a>

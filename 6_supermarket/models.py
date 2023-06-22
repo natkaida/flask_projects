@@ -8,7 +8,7 @@ class Patient(db.Model):
     details = db.Column(db.String(100), nullable=False)
     weight = db.Column(db.Float, nullable=False)
     age = db.Column(db.Float, nullable=False)
-    owner_name = db.Column(db.String(250), nullable=False)
+    owner_details = db.Column(db.String(250), nullable=False)
 
     def __repr__(self):
-        return f"Patient(name='{self.name}', details='{self.details}', weight='{self.weight}', age='{self.age}', owner_name='{self.owner_name}')"
+        return f"Patient(name='{self.name}', details='{self.details}', weight='{self.weight}', age='{self.age}', owner_details='{self.owner_details}')"

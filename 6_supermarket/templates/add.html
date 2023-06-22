@@ -3,6 +3,7 @@
 
 {% block content %}
     <h1>Добавление товара</h1>
+    <div class="col-8">
     <form method="POST" action="/add">
         <div class="form-group">
             <label for="name">Наименование:</label>
@@ -26,5 +27,6 @@
         </div>
         <button type="submit" class="btn btn-primary mt-3">Сохранить</button>
     </form>
+</div>
     <a href="/" class="btn btn-secondary mt-3">Назад</a>
 {% endblock %}
